@@ -111,8 +111,37 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             if(ptr -> m_finish == key.substr(i, ptr -> m_finish.size() - 1))
             {
                 //this is if the substrings matches
+                i = i + ptr -> m_finish.size();
+                //this goes forward
             }else{
-                
+                for(int k = 0; k < ptr -> m_finish.size(); k++)
+                {
+                    if(ptr -> m_finish[k] != key[i + k])
+                    {
+                        Node* parent = new Node;
+                        parent -> m_finish = ptr -> m_finish.substr(0, k);
+                        
+                        
+                        Node* child1 = new Node; //child 1 is the parm node
+                        child1 -> m_finish = key.substr(k, key.size() - 1);
+                        child1 -> m_val = value;
+                        
+                        Node* child2 = new Node; //child 2 is the broken off one
+                        child2 -> m_finish = ptr -> m_finish.substr(k, ptr -> m_finish.size());
+                        child2 -> m_val = ptr -> m_val;
+                        
+                        
+                        parent -> m_children[child1 -> m_finish[0]] = child1;
+                        parent -> m_children[child2 -> m_finish[0]] = child2;
+                        
+                        ptr -> m_children[parent -> m_finish[0]] = parent;
+                        
+                        
+                        ptr -> m_val = 0;
+                        ptr -> m_finish = "";
+                        ptr -> m_atEnd = false;
+                    }
+                }
             }
             
             
