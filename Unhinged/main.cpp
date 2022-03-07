@@ -9,7 +9,9 @@ int main()
     
     
     r.insert("aab", 5);
-
+    r.insert("abc", 4);
+    
+    
     
     std::cout<<"Hello World"<<std::endl;
     return 0;

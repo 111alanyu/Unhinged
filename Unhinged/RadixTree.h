@@ -74,15 +74,16 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                 if(ptr -> m_finish[j] != key[j])
                 {
                     Node* parent = new Node;
-                    parent -> m_finish = ptr -> m_finish.substr(0, j);
+                    parent -> m_finish = ptr -> m_finish.substr(0, 1);
+                    parent -> m_atEnd = false;
                     
                     
                     Node* child1 = new Node; //child 1 is the parm node
-                    child1 -> m_finish = key.substr(j, key.size() - 1);
+                    child1 -> m_finish = key.substr(1, key.size() - 1);
                     child1 -> m_val = value;
                     
                     Node* child2 = new Node; //child 2 is the broken off one
-                    child2 -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size());
+                    child2 -> m_finish = ptr -> m_finish.substr(1, ptr -> m_finish.size());
                     child2 -> m_val = ptr -> m_val;
                     
                     
@@ -92,15 +93,18 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                     ptr -> m_children[parent -> m_finish[0]] = parent;
                     
                     
+                    ptr -> m_finish = "";
                     ptr -> m_val = 0;
                     ptr -> m_atEnd = false;
-
+                    return;
                 }
                 
             }
+            return;
         }
         
-        //2. What if we are not?
+
+        //2. What if we are not at the end?
         
         
         
