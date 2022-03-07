@@ -1,0 +1,61 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "d991680f38eb51a6729c89c9cf5e18ace7ac3d67d51d01db4e8ce301d69d58ad"
+    }
+  ],
+  "containerPath" : "/Users/alanyu/Documents/Programming/CS32/Projects/4/Unhinged/Unhinged.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "arm64e",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx12.1",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "arm64e",
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64e"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/alanyu/Documents/Programming/CS32/Projects/4/Unhinged/DerivedData/Unhinged/Index/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/alanyu/Documents/Programming/CS32/Projects/4/Unhinged/DerivedData/Unhinged/Index/Build/Products",
+      "derivedDataPath" : "/Users/alanyu/Documents/Programming/CS32/Projects/4/Unhinged/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/alanyu/Documents/Programming/CS32/Projects/4/Unhinged/DerivedData/Unhinged/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/alanyu/Documents/Programming/CS32/Projects/4/Unhinged/DerivedData/Unhinged/Index/PrecompiledHeaders",
+      "pchPath" : "/Users/alanyu/Documents/Programming/CS32/Projects/4/Unhinged/DerivedData/Unhinged/Index/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "INDEX_ARENA_INFO_REGULAR_BUILD_PRODUCTS_DIR" : "/Users/alanyu/Documents/Programming/CS32/Projects/4/Unhinged/DerivedData/Unhinged/Build/Products",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
