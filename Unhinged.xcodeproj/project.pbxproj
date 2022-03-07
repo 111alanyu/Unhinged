@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E21A87627D5ACB70088B723 /* RadixTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadixTree.h; sourceTree = "<group>"; };
 		4EA53DC927D351D0000BC43C /* Unhinged */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Unhinged; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA53DD327D35B01000BC43C /* provided.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = provided.h; sourceTree = "<group>"; };
 		4EA53DD427D35B01000BC43C /* translator.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = translator.txt; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				4EA53DD627D375DE000BC43C /* main.cpp */,
+				4E21A87627D5ACB70088B723 /* RadixTree.h */,
 				4EA53DD527D35B01000BC43C /* members.txt */,
 				4EA53DD327D35B01000BC43C /* provided.h */,
 				4EA53DD427D35B01000BC43C /* translator.txt */,

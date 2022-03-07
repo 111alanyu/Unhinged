@@ -1,5 +1,26 @@
+#include <iostream>
+#include "RadixTree.h"
+int main()
+{
+
+    RadixTree<int> r;
+    r.insert("aaa", 6);
+    
+    
+    
+    r.insert("aab", 5);
+
+    
+    std::cout<<"Hello World"<<std::endl;
+    return 0;
+}
+
+
+
+
 //main.cpp
 
+/*
 #include "PersonProfile.h"
 #include "AttributeTranslator.h"
 #include "MemberDatabase.h"
@@ -80,3 +101,5 @@ bool findMatches(const MemberDatabase& mdb, const AttributeTranslator& at)
     std::cout << std::endl;
     return true;
 }
+
+*/
