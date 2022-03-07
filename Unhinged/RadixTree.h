@@ -41,6 +41,8 @@ private:
 template <typename ValueType>
 void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
 {
+    
+    Node* ptr =  m_dummy.m_children[key[0]];
     //we do not have to check if the key is nothing
     if(m_dummy.m_children[key[0]] == nullptr)
     {
@@ -53,7 +55,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
         //this means that there has been no words starting with the first charachter
     }
     
-    Node* ptr =  m_dummy.m_children[key[0]];
+    
     for(int i = 0; i < key.length(); i++)
     {
         //1. What if we are at the end?
@@ -102,13 +104,19 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
         }
         
         
-        //If we are not at the end, we have to know what node we are dealing with. Are we dealing with a string node or a chrachter node
-        
-        //This is dealing with if it is a char node
+        //This is if we are dealing with a charachter node
         if(ptr -> m_finish == "")
         {
+            //1. Check if the letter is allocated in the array?
+            if(ptr -> m_children[key[i]] != nullptr)
+            {
+                ptr = ptr -> m_children[key[i]];
+        
+            }
+        }else if(ptr -> m_finish != "")
+        {
             //Do the substrings match?
-            if(ptr -> m_finish == key.substr(i, ptr -> m_finish.size() - 1))
+              if(ptr -> m_finish == key.substr(i, ptr -> m_finish.size() - 1))
             {
                 //this is if the substrings matches
                 i = i + ptr -> m_finish.size();
@@ -134,7 +142,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                         parent -> m_children[child1 -> m_finish[0]] = child1;
                         parent -> m_children[child2 -> m_finish[0]] = child2;
                         
-                        ptr -> m_children[parent -> m_finish[0]] = parent;
+                        ptr = parent;
                         
                         
                         ptr -> m_val = 0;
