@@ -43,6 +43,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
 {
     
     Node* ptr =  m_dummy.m_children[key[0]];
+    Node* ptrB = m_dummy.m_children[key[0]];
     //we do not have to check if the key is nothing
     if(m_dummy.m_children[key[0]] == nullptr)
     {
@@ -77,32 +78,12 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                 if(ptr -> m_finish[j] != key[j])
                 {
                     
-                    Node* holder = new Node;
-                    holder = ptr;
+                    Node* uncle = new Node;
+                    uncle -> m_finish = ptr -> m_finish.substr(0, j);
                     
-                    
-                    Node* parent = new Node;
-                    parent -> m_finish = ptr -> m_finish.substr(0, j);
-                    
-                    
-                    Node* child1 = new Node; //child 1 is the parm node
-                    child1 -> m_finish = key.substr(j, key.size() - 1);
-                    child1 -> m_val = value;
-                    
-                    Node* child2 = new Node; //child 2 is the broken off one
-                    child2 -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size());
-                    child2 -> m_val = ptr -> m_val;
-                    
-                    
-                    parent -> m_children[child1 -> m_finish[0]] = child1;
-                    parent -> m_children[child2 -> m_finish[0]] = child2;
-                    
-                    ptr -> m_children[parent -> m_finish[0]] = parent;
-                    
-                    
-                    ptr -> m_val = 0;
-                    ptr -> m_finish = "";
-                    ptr -> m_atEnd = false;
+                    ptr -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size());
+                    uncle -> m_children[ptr -> m_finish.at(0)] = ptr;
+                    ptrB -> m_children[uncle -> m_finish.at(0)] = uncle;
                 }
                 
             }
@@ -117,6 +98,10 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             if(ptr -> m_children[key[i]] != nullptr)
             {
                 ptr = ptr -> m_children[key[i]];
+                if(ptr != ptrB)
+                {
+                    ptrB = ptrB -> m_children[key[i]];
+                }
         
             }
         }else if(ptr -> m_finish != "")
