@@ -66,6 +66,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             if(ptr -> m_finish == key)
             {
                 ptr -> m_val = value;
+                return;
             }
             
             
@@ -75,6 +76,11 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             {
                 if(ptr -> m_finish[j] != key[j])
                 {
+                    
+                    Node* holder = new Node;
+                    holder = ptr;
+                    
+                    
                     Node* parent = new Node;
                     parent -> m_finish = ptr -> m_finish.substr(0, j);
                     
@@ -124,8 +130,13 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             }else{
                 for(int k = 0; k < ptr -> m_finish.size(); k++)
                 {
+                    
                     if(ptr -> m_finish[k] != key[i + k])
                     {
+                        
+                        Node* temp = new Node;
+                        temp = ptr;
+                        
                         Node* parent = new Node;
                         parent -> m_finish = ptr -> m_finish.substr(0, k);
                         
@@ -142,12 +153,14 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                         parent -> m_children[child1 -> m_finish[0]] = child1;
                         parent -> m_children[child2 -> m_finish[0]] = child2;
                         
-                        ptr = parent;
-                        
-                        
                         ptr -> m_val = 0;
                         ptr -> m_finish = "";
                         ptr -> m_atEnd = false;
+                        
+                        ptr = parent;
+                        
+                        
+                       
                     }
                 }
             }
