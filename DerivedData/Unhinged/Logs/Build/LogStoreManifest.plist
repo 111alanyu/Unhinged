@@ -1400,6 +1400,40 @@
 			<key>uniqueIdentifier</key>
 			<string>1D393B8B-5173-4AB9-B111-E4113FB1F324</string>
 		</dict>
+		<key>1DDE2A14-3881-4B05-BF05-678407745DE0</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>1DDE2A14-3881-4B05-BF05-678407745DE0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Analyze Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668431261.96458304</real>
+			<key>timeStoppedRecording</key>
+			<real>668431262.31666899</real>
+			<key>title</key>
+			<string>Analyze Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>1DDE2A14-3881-4B05-BF05-678407745DE0</string>
+		</dict>
 		<key>1DF60928-D5B8-487B-8E67-A907D69594C0</key>
 		<dict>
 			<key>className</key>

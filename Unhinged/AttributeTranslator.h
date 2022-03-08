@@ -8,5 +8,13 @@
 #ifndef AttributeTranslator_h
 #define AttributeTranslator_h
 
-
+class AttributeTranslator
+{
+public:
+    AttributeTranslator();
+    ~AttributeTranslator();
+    bool Load(std::string filename);
+    
+private:
+};
 #endif /* AttributeTranslator_h */
