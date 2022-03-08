@@ -72,82 +72,56 @@ ValueType* RadixTree<ValueType>::search(std::string key) const
 template <typename ValueType>
 void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
 {
+   if(m_dummy.m_children[key.at(0)] == nullptr)
+   {
+       Node* n = new Node;
+       n -> m_finish = key.substr(1, key.size());
+       m_dummy.m_children[key.at(0)] = n;
+       return;
+   }
     
-    if(m_dummy.m_children[key.at(0)] == nullptr)
+    Node* ptr = m_dummy.m_children[key.at(0)];
+    int counter = 1;
+    std::string rem = key;
+    while(counter != key.size())
     {
-        Node* temp =  new Node;
-        temp -> m_finish = key.substr(1, key.size() - 1);
-        temp -> m_val = value;
-        m_dummy.m_children[key.at(0)] = temp;
-        return;
-    }
-    
-    
-    Node* ptr = &m_dummy;
-    Node* ptrB = ptr;
-    for(int i = 0; i < key.size(); i++)
-    {
-        //let's say we get to the end of the key value, what do we do?
-        
-        //this is what happens if the key values are the same
-        if(i == key.size() - 1)
+        if(ptr -> m_finish != "")
         {
-            if(ptr -> m_atEnd)
+            if(rem.substr(counter, ptr -> m_finish.size()) == ptr -> m_finish)
             {
-                ptr -> m_val = value;
-            } //what about if there is no endpoint yet? -> must implement
-            return;
-        }
-        
-        //this is if we are not at the end of the key value yet
-        char index = key[i];
-        int iIndex = index;
-        std::string hol = "";
-        
-        if(ptr -> m_children[iIndex] == nullptr)
-        {
-            if(ptr -> m_finish != "")
-            {
-                for(int k = 0; k < ptr -> m_finish.size(); k++)
+                counter = counter + ptr -> m_finish.size() - 1;
+                if (counter == key.size())
                 {
-                    if(ptr -> m_finish[k] != key[i+k])
+                    if(ptr->m_atEnd)
                     {
-                        break;
+                        ptr -> m_val = value;
                     }else{
-                        hol += key[i+k];
-                        ptr -> m_finish = ptr -> m_finish.substr(k, ptr -> m_finish.size() - 1);
+                        ptr -> m_atEnd = true;
+                        ptr -> m_val = value;
                     }
-                    //what happens if we are at the end?
+                }else{
+                    if(ptr -> m_children[key.at(counter)] != nullptr)
+                    {
+                        ptr = ptr -> m_children[key.at(counter)];
+                    }else{
+                        Node* l = new Node;
+                        l->m_finish = key.substr(counter, key.size() - 1);
+                        l-> m_atEnd = true;
+                    }
                 }
-            
-                Node* g = new Node;
-                
-                g -> m_finish = hol.substr(0, hol.size());
-                
-                
-                
-                
-                Node* n = new Node;
-                n -> m_val = value;
-                n -> m_finish = key.substr(i+1, key.size() - 1);
-                
-                g -> m_children[n -> m_finish.at(0)] = n;
-                g -> m_children[ptr -> m_finish.at(0)] = ptr;
-                
-                ptrB -> m_children[g -> m_finish.at(0)] = g;
-                return;
-                //this is what happens if we hit a dead end
+            }else{
+                std::string holder = "";
+                for(int j = 0; j < ptr -> m_finish.size(); j++)
+                {
+                    if(ptr -> m_finish.at(j) == key.at(counter + j))
+                    {
+                        
+                    }
+                }
             }
-        }else if(ptr != ptrB)
-        {
-            ptr = ptr -> m_children[iIndex];
-        }else{
-            ptr =  ptr -> m_children[iIndex];
-            ptrB = ptrB -> m_children[iIndex];
         }
-        
-
     }
+    
 }
 
 template <typename ValueType>

@@ -12,13 +12,7 @@ int main()
     
     
     
-    r.insert("aaab", 5);
-    
-    
-    r.insert("abc", 4);
-    
-    
-    
+
     std::cout<<"Hello World"<<std::endl;
     return 0;
 }
