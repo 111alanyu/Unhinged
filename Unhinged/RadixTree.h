@@ -17,7 +17,7 @@ public:
     RadixTree();
     ~RadixTree();
     void insert(std::string key, const ValueType& value);
-    ValueType* serch(std::string key) const;
+    ValueType* search(std::string key) const;
 private:
     struct Node
     {
@@ -34,130 +34,93 @@ private:
     };
     Node m_dummy;
     
+    
+    
 };
 
-
+template <typename ValueType>
+ValueType* RadixTree<ValueType>::search(std::string key) const
+{
+    Node* traverseNode = &m_dummy;
+    int elmFound = 0;
+    
+    while(traverseNode !=  nullptr && !traverseNode -> m_atEnd && elmFound < key.length())
+    {
+        char cur = key[elmFound];
+        int curI = cur;
+        if(traverseNode -> m_childrexn[curI] != nullptr)
+        {
+            if(traverseNode -> m_children[curI] -> m_finish == key.substr(elmFound, traverseNode -> m_children[curI] -> m_finish.size()))
+            {
+                elmFound += traverseNode -> m_children[curI] -> m_finish.size();
+            }
+            traverseNode = traverseNode -> m_children[curI];
+        }else
+        {
+            traverseNode = nullptr;
+        }
+    }
+    
+    if(traverseNode == nullptr)
+    {
+        return nullptr;
+    }else{
+        return traverseNode -> m_val;
+    }
+}
 
 template <typename ValueType>
 void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
 {
     
-    Node* ptr =  m_dummy.m_children[key[0]];
-    Node* ptrB = m_dummy.m_children[key[0]];
-    //we do not have to check if the key is nothing
-    if(m_dummy.m_children[key[0]] == nullptr)
+    if(m_dummy.m_children[key.at(0)] == nullptr)
     {
-        std::cerr<<"*"<<std::endl;
-        Node* n = new Node;
-        n->m_finish = key;
-        n->m_val = value;
-        m_dummy.m_children[key[0]] = n;
+        Node* temp =  new Node;
+        temp -> m_finish = key.substr(1, key.size());
+        temp -> m_val = value;
+        m_dummy.m_children[key.at(0)] = temp;
         return;
-        //this means that there has been no words starting with the first charachter
     }
     
     
-    for(int i = 0; i < key.length(); i++)
+    Node* ptr = &m_dummy;
+    Node* ptrB = ptr;
+    for(int i = 0; i < key.size(); i++)
     {
-        //1. What if we are at the end?
-        if(ptr -> m_atEnd)
+        //let's say we get to the end of the key value, what do we do?
+        
+        //this is what happens if the key values are the same
+        if(i == key.size() - 1)
         {
-            
-            //1. What if the words are the same?
-            if(ptr -> m_finish == key)
+            if(ptr -> m_atEnd)
             {
                 ptr -> m_val = value;
-                return;
-            }
-            
-            
-            //2. What if they are not?
-            
-            for(int j = 0; j < ptr -> m_finish.size(); j++)
-            {
-                if(ptr -> m_finish[j] != key[j])
-                {
-                    
-                    Node* uncle = new Node;
-                    uncle -> m_finish = ptr -> m_finish.substr(0, j);
-                    
-                    ptr -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size());
-                    uncle -> m_children[ptr -> m_finish.at(0)] = ptr;
-                    ptrB -> m_children[uncle -> m_finish.at(0)] = uncle;
-                }
-                
-            }
+            } //what about if there is no endpoint yet? -> must implement
             return;
         }
         
+        //this is if we are not at the end of the key value yet
+        char index = key[i];
+        int iIndex = index;
         
-        //This is if we are dealing with a charachter node
-        if(ptr -> m_finish == "")
+        if(ptr -> m_children[iIndex] == nullptr)
         {
-            //1. Check if the letter is allocated in the array?
-            if(ptr -> m_children[key[i]] != nullptr)
-            {
-                ptr = ptr -> m_children[key[i]];
-                if(ptr != ptrB)
-                {
-                    ptrB = ptrB -> m_children[key[i]];
-                }
-        
-            }
-        }else if(ptr -> m_finish != "")
+            
+            Node* n = new Node;
+            n -> m_val = value;
+            n -> m_finish = key.substr(i+1, key.size() - 1);
+            
+            ptr -> m_children[iIndex ] = n;
+            //this is what happens if we hit a dead end
+        }else if(ptr != ptrB)
         {
-            //Do the substrings match?
-              if(ptr -> m_finish == key.substr(i, ptr -> m_finish.size() - 1))
-            {
-                //this is if the substrings matches
-                i = i + ptr -> m_finish.size();
-                //this goes forward
-            }else{
-                for(int k = 0; k < ptr -> m_finish.size(); k++)
-                {
-                    
-                    if(ptr -> m_finish[k] != key[i + k])
-                    {
-                        
-                        Node* temp = new Node;
-                        temp = ptr;
-                        
-                        Node* parent = new Node;
-                        parent -> m_finish = ptr -> m_finish.substr(0, k);
-                        
-                        
-                        Node* child1 = new Node; //child 1 is the parm node
-                        child1 -> m_finish = key.substr(k, key.size() - 1);
-                        child1 -> m_val = value;
-                        
-                        Node* child2 = new Node; //child 2 is the broken off one
-                        child2 -> m_finish = ptr -> m_finish.substr(k, ptr -> m_finish.size());
-                        child2 -> m_val = ptr -> m_val;
-                        
-                        
-                        parent -> m_children[child1 -> m_finish[0]] = child1;
-                        parent -> m_children[child2 -> m_finish[0]] = child2;
-                        
-                        ptr -> m_val = 0;
-                        ptr -> m_finish = "";
-                        ptr -> m_atEnd = false;
-                        
-                        ptr = parent;
-                        
-                        
-                       
-                    }
-                }
-            }
-            
-            
+            ptr = ptr -> m_children[iIndex];
+        }else{
+            ptr =  ptr -> m_children[iIndex];
+            ptrB = ptrB -> m_children[iIndex];
         }
         
 
-        //2. What if we are not at the end?
-        
-        
-        
     }
 }
 
