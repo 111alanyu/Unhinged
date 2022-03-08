@@ -7,7 +7,7 @@
 
 #ifndef RadixTree_h
 #define RadixTree_h
-
+/*
 
 
 template <typename ValueType>
@@ -138,6 +138,9 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             y -> m_finish = key.substr(counter + 1, key.size() - counter);
             y -> m_val = value;
             ptr -> m_children[key.at(counter)] = y;
+            
+            Node z  = new Node;
+            z -> m_finish = 
             return;
         }else
         {
@@ -168,4 +171,6 @@ RadixTree<ValueType>::~RadixTree()
     
 }
 
+ */
 #endif /* RadixTree_h */
+
