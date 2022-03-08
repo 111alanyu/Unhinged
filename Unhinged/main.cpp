@@ -1,14 +1,18 @@
 #include <iostream>
 #include "RadixTree.h"
+using namespace std;
 int main()
 {
-
+    string sad = "a";
+    string jenny = sad.substr(1,1);
+    
+    
     RadixTree<int> r;
-    r.insert("aaa", 6);
+    r.insert("aaaa", 6);
     
     
     
-    r.insert("aab", 5);
+    r.insert("aaab", 5);
     
     
     r.insert("abc", 4);

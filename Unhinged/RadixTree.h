@@ -76,7 +76,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
     if(m_dummy.m_children[key.at(0)] == nullptr)
     {
         Node* temp =  new Node;
-        temp -> m_finish = key.substr(1, key.size());
+        temp -> m_finish = key.substr(1, key.size() - 1);
         temp -> m_val = value;
         m_dummy.m_children[key.at(0)] = temp;
         return;
@@ -102,16 +102,42 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
         //this is if we are not at the end of the key value yet
         char index = key[i];
         int iIndex = index;
+        std::string hol = "";
         
         if(ptr -> m_children[iIndex] == nullptr)
         {
+            if(ptr -> m_finish != "")
+            {
+                for(int k = 0; k < ptr -> m_finish.size(); k++)
+                {
+                    if(ptr -> m_finish[k] != key[i+k])
+                    {
+                        break;
+                    }else{
+                        hol += key[i+k];
+                        ptr -> m_finish = ptr -> m_finish.substr(k, ptr -> m_finish.size() - 1);
+                    }
+                    //what happens if we are at the end?
+                }
             
-            Node* n = new Node;
-            n -> m_val = value;
-            n -> m_finish = key.substr(i+1, key.size() - 1);
-            
-            ptr -> m_children[iIndex ] = n;
-            //this is what happens if we hit a dead end
+                Node* g = new Node;
+                
+                g -> m_finish = hol.substr(0, hol.size());
+                
+                
+                
+                
+                Node* n = new Node;
+                n -> m_val = value;
+                n -> m_finish = key.substr(i+1, key.size() - 1);
+                
+                g -> m_children[n -> m_finish.at(0)] = n;
+                g -> m_children[ptr -> m_finish.at(0)] = ptr;
+                
+                ptrB -> m_children[g -> m_finish.at(0)] = g;
+                return;
+                //this is what happens if we hit a dead end
+            }
         }else if(ptr != ptrB)
         {
             ptr = ptr -> m_children[iIndex];
