@@ -76,11 +76,13 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
    {
        Node* n = new Node;
        n -> m_finish = key.substr(1, key.size());
+       n -> m_val = value;
        m_dummy.m_children[key.at(0)] = n;
        return;
    }
     
     Node* ptr = m_dummy.m_children[key.at(0)];
+    Node* bPtr = ptr;
     int counter = 1;
     std::string rem = key;
     while(counter != key.size())
@@ -115,13 +117,43 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                 {
                     if(ptr -> m_finish.at(j) == key.at(counter + j))
                     {
-                        
+                        holder += key.at(counter + j);
+                    }else
+                    {
+                        break;
                     }
                 }
+                
+                Node* r = new Node;
+                r -> m_finish = holder;
+                r -> m_atEnd = false;
+                
             }
         }
+        
+        
+        if(ptr -> m_children[key.at(counter)] == nullptr)
+        {
+            Node* y = new Node;
+            y -> m_finish = key.substr(counter + 1, key.size() - counter);
+            y -> m_val = value;
+            ptr -> m_children[key.at(counter)] = y;
+            return;
+        }else
+        {
+            if(ptr == bPtr)
+            {
+                ptr = ptr -> m_children[counter];
+            }else{
+                bPtr = ptr;
+                ptr = ptr -> m_children[counter];
+                
+            
+        }
+            
     }
-    
+        counter++;
+    }
 }
 
 template <typename ValueType>

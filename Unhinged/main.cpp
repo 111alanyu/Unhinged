@@ -9,7 +9,7 @@ int main()
     
     RadixTree<int> r;
     r.insert("aaaa", 6);
-    
+    r.insert("abcd", 5);
     
     
 
