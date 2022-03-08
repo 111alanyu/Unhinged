@@ -7,7 +7,7 @@
 
 #ifndef RadixTree_h
 #define RadixTree_h
-/*
+
 
 
 template <typename ValueType>
@@ -34,6 +34,7 @@ private:
     };
     Node m_dummy;
     
+
     
     
 };
@@ -72,91 +73,79 @@ ValueType* RadixTree<ValueType>::search(std::string key) const
 template <typename ValueType>
 void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
 {
-   if(m_dummy.m_children[key.at(0)] == nullptr)
-   {
-       Node* n = new Node;
-       n -> m_finish = key.substr(1, key.size());
-       n -> m_val = value;
-       m_dummy.m_children[key.at(0)] = n;
-       return;
-   }
-    
-    Node* ptr = m_dummy.m_children[key.at(0)];
-    Node* bPtr = ptr;
-    int counter = 1;
-    std::string rem = key;
-    while(counter != key.size())
+    if(m_dummy.m_children[key.at(0)] == nullptr)
     {
-        if(ptr -> m_finish != "")
+        Node* n = new Node;
+        n -> m_finish = key;
+        n -> m_val = value;
+        m_dummy.m_children[key.at(0)] = n;
+        return;
+    }
+    Node* ptr = new Node;
+    ptr = m_dummy.m_children[key.at(0)];
+    
+    int i = 0;
+    while(i != key.size())
+    {
+
+        int j = 0;
+        
+        //change
+        
+        //CASE: The key and the node string is the same
+        if(ptr -> m_finish == key)
         {
-            if(rem.substr(counter, ptr -> m_finish.size()) == ptr -> m_finish)
+            if(ptr -> m_atEnd)
             {
-                counter = counter + ptr -> m_finish.size() - 1;
-                if (counter == key.size())
-                {
-                    if(ptr->m_atEnd)
-                    {
-                        ptr -> m_val = value;
-                    }else{
-                        ptr -> m_atEnd = true;
-                        ptr -> m_val = value;
-                    }
-                }else{
-                    if(ptr -> m_children[key.at(counter)] != nullptr)
-                    {
-                        ptr = ptr -> m_children[key.at(counter)];
-                    }else{
-                        Node* l = new Node;
-                        l->m_finish = key.substr(counter, key.size() - 1);
-                        l-> m_atEnd = true;
-                    }
-                }
+                ptr -> m_val = value;
             }else{
-                std::string holder = "";
-                for(int j = 0; j < ptr -> m_finish.size(); j++)
-                {
-                    if(ptr -> m_finish.at(j) == key.at(counter + j))
-                    {
-                        holder += key.at(counter + j);
-                    }else
-                    {
-                        break;
-                    }
-                }
-                
-                Node* r = new Node;
-                r -> m_finish = holder;
-                r -> m_atEnd = false;
-                
+                ptr -> m_finish = true;
+                ptr -> m_val = value;
+            }
+        }
+    
+        while(i < key.size() && j < ptr -> m_finish.size())
+        {
+            if(key.at(i) == ptr -> m_finish.at(j))
+            {
+                i++;
+                j++;
+            }else{
+                break;
             }
         }
         
-        
-        if(ptr -> m_children[key.at(counter)] == nullptr)
-        {
-            Node* y = new Node;
-            y -> m_finish = key.substr(counter + 1, key.size() - counter);
-            y -> m_val = value;
-            ptr -> m_children[key.at(counter)] = y;
+        if(j < ptr -> m_finish.size())
+        {//we do not reach the end of the ptr
+            //we are creating a new node that will be the parent of all these nodes
+            Node* stepParent = new Node;
             
-            Node z  = new Node;
-            z -> m_finish = 
-            return;
-        }else
-        {
-            if(ptr == bPtr)
+            //this is if we go through the whole pass in parameter
+            if(i == key.size() - 1)
             {
-                ptr = ptr -> m_children[counter];
+                stepParent -> m_finish = ptr -> m_finish.substr(0, j);
+                stepParent -> m_atEnd = true;
             }else{
-                bPtr = ptr;
-                ptr = ptr -> m_children[counter];
-                
+                stepParent -> m_finish = ptr -> m_finish.substr(0, j);
+                stepParent -> m_atEnd = false;
+            }
+            
+            for(int l = 0; l < ptr -> m_children.size(); l++)
+            {
+                stepParent -> m_children[l] = ptr -> m_children[l];
+            }
+            
+            ptr = stepParent;
+            
             
         }
-            
+        
+        
+        
+      
+        
     }
-        counter++;
-    }
+   
 }
 
 template <typename ValueType>
@@ -171,6 +160,6 @@ RadixTree<ValueType>::~RadixTree()
     
 }
 
- */
+ 
 #endif /* RadixTree_h */
 
