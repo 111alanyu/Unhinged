@@ -120,9 +120,15 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
         std::cerr<<ptr -> m_finish.size()<<std::endl;
         if(i == key.size()) //case 2: we went through the entire input, and there is more node
         {
+            //I have this the wrong way
             Node* input2 = new Node;
             input2 -> m_finish = holder;
+            input2 -> m_val = value;
             
+            ptrB -> m_children[holder.at(0)] = input2;
+            
+            ptr -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size() - j);
+            input2 -> m_children[ptr -> m_finish.at(0)] = ptr;
             
             //the i is already at the point, so no need to remove the prefix
             std::cerr<<"case 2"<<std::endl;
@@ -137,7 +143,14 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                 ptr -> m_children[input -> m_finish.at(0)] = input;
                 return;
             }else{
-                ptr =  ptr -> m_children[key.at(i)];
+                if(ptrB == ptr)
+                {
+                    ptr =  ptr -> m_children[key.at(i)];
+                }else{
+                    ptrB = ptr;
+                    ptr = ptr -> m_children[key.at(i)];
+                }
+               
                 break;
             }
         }else{//case 3: we went through both the node and the input, and we have not reached the end of either of them
