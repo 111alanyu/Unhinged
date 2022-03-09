@@ -143,6 +143,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                 ptr -> m_children[input -> m_finish.at(0)] = input;
                 return;
             }else{
+                std::cerr<<"FLAG1"<<std::endl;
                 if(ptrB == ptr)
                 {
                     ptr =  ptr -> m_children[key.at(i)];
@@ -151,38 +152,21 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                     ptr = ptr -> m_children[key.at(i)];
                 }
                
-                break;
+               
             }
         }else{//case 3: we went through both the node and the input, and we have not reached the end of either of them
             std::cerr<<"case 3"<<std::endl;
+            Node* input2 = new Node;
+            input2 -> m_finish = holder;
+            input2 -> m_val = value;
+            
+            ptrB -> m_children[holder.at(0)] = input2;
+            
+            ptr -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size() - j);
+            input2 -> m_children[ptr -> m_finish.at(0)] = ptr;
+            
             return;
         }
-        /*
-        if(j < ptr -> m_finish.size())
-        {//we do not reach the end of the ptr
-            //we are creating a new node that will be the parent of all these nodes
-            Node* stepParent = new Node;
-            
-            //this is if we go through the whole pass in parameter
-            if(i == key.size() - 1)
-            {
-                stepParent -> m_finish = ptr -> m_finish.substr(0, j);
-                stepParent -> m_atEnd = true;
-            }else{
-                stepParent -> m_finish = ptr -> m_finish.substr(0, j);
-                stepParent -> m_atEnd = false;
-            }
-            
-            for(int l = 0; l < ptr -> m_children.size(); l++)
-            {
-                stepParent -> m_children[l] = ptr -> m_children[l];
-            }
-            
-            ptr = stepParent;
-            
-            
-        }
-        */
         
         
       
