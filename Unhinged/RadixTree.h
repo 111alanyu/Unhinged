@@ -150,27 +150,21 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             
         }else if(j == ptr -> m_finish.size()){ //case 1: we went through the entire node, and there is more input
             std::cerr<<"case 1"<<std::endl;
-            std::cerr<<key.at(i)<<std::endl;
-            if(ptr -> m_children[key.at(i)] == nullptr)
+            
+            
+            if(ptr -> m_children[key.at(i)])
             {
-                Node* input = new Node();
-                input -> m_finish = key.substr(j, key.size() - j);
-                ptr -> m_children[input -> m_finish.at(0)] = input;
-                return;
+                ptr = ptr -> m_children[key.at(i)];
             }else{
-                std::cerr<<"FLAG1"<<std::endl;
-                if(ptrB == ptr)
-                {
-                    ptr =  ptr -> m_children[key.at(i)];
-                }else{
-                    ptrB = ptr;
-                    ptr = ptr -> m_children[key.at(i)];
-                }
-               
-               
+                
+                Node* child = new Node;
+                child -> m_finish = key.substr(i, key.size());
+                child -> m_val = value;
+                ptr -> m_children[key.at(i)] = child;
+                return;
             }
         }else{//case 3: we went through both the node and the input, and we have not reached the end of either of them
-            
+            std::cerr<<"Case 3"<<std::endl;
             //TODO: This is what we need to fix, we are one too deep
             Node* stepChild = new Node;
             stepChild -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size());
@@ -182,8 +176,9 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             }
             
             Node* moveInChild = new Node;
-            moveInChild -> m_finish = key.substr(j, key.size());
+            moveInChild -> m_finish = key.substr(i, key.size());
             
+            ptr -> m_finish = ptr -> m_finish.substr(0, j);
             ptr -> m_children[stepChild -> m_finish.at(0)] = stepChild;
             ptr -> m_children[moveInChild -> m_finish.at(0)] = moveInChild;
             

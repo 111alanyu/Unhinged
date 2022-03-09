@@ -11,8 +11,11 @@ int main()
     RadixTree<int> r;
     r.insert("carpet", 4);
     r.insert("car",3);
+    
     r.insert("carpeter", 5);
     
+    
+    r.insert("carppy", 10);
     
     
     
