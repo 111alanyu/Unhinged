@@ -103,7 +103,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             {
                 ptr -> m_val = value;
             }else{
-                ptr -> m_finish = true;
+                ptr -> m_atEnd = true;
                 ptr -> m_val = value;
             }
             return;
@@ -139,14 +139,18 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             Node* stepChild = new Node;
             stepChild -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size());
             
+            stepChild -> m_val = ptr -> m_val;
             for(int k = 0; k < 128; k++)
             {
                 stepChild -> m_children[k] = ptr -> m_children[k];
                 ptr -> m_children[k] = nullptr;
             }
+            ptr -> m_val = value;
             ptr -> m_finish = ptr -> m_finish.substr(0, j);
             ptr -> m_children[stepChild -> m_finish.at(0)] = stepChild;
             ptr -> m_atEnd = true;
+            
+            
             
             
             //the i is already at the point, so no need to remove the prefix
@@ -182,6 +186,9 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             
             Node* moveInChild = new Node;
             moveInChild -> m_finish = key.substr(i, key.size());
+            moveInChild -> m_val = value;
+            stepChild -> m_val = ptr -> m_val;
+            ptr -> m_val = 0;
             
             ptr -> m_finish = ptr -> m_finish.substr(0, j);
             ptr -> m_children[stepChild -> m_finish.at(0)] = stepChild;

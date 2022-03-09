@@ -9,6 +9,7 @@ int main()
     
     
     RadixTree<int> r;
+    
     r.insert("carpet", 4);
     r.insert("car",3);
     
@@ -20,6 +21,8 @@ int main()
     r.insert("titty", 11);
     r.insert("titts", 15);
     r.insert("titty", 20);
+    
+    r.insert("titt", -69);
     
     
 
