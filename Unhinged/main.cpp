@@ -7,58 +7,147 @@ void testRT3() {
     string val;
 
     tree.insert("Ahart@gmail.com", "1");
-    
     val = *(tree.search("Ahart@gmail.com"));
     assert(val == "1");
-    
 
     tree.insert("AmJuare@gmail.com", "2");
-    
-    
     val = *(tree.search("AmJuare@gmail.com"));
     assert(val == "2");
     val = *(tree.search("Ahart@gmail.com"));
     assert(val == "1");
-     
-    
+
     tree.insert("AmH74@gmail.com", "3");
-    
-    
+    cout << *(tree.search("AmH74@gmail.com")) << endl;
     val = *(tree.search("AmH74@gmail.com"));
     assert(val == "3");
     val = *(tree.search("AmJuare@gmail.com"));
     assert(val == "2");
     val = *(tree.search("Ahart@gmail.com"));
     assert(val == "1");
-     
 }
 
+void testRadixTree() {
+    //initiate tree
+    RadixTree<std::string> tree;
+
+    //insert first word: cash
+    tree.insert("cash", "money");
+    std::string val;
+    val = *(tree.search("cash"));
+    assert(val == "money");
+
+    //insert second word: bash
+    tree.insert("bash", "sudo");
+    val = *(tree.search("bash"));
+    assert(val == "sudo");
+
+    val = *(tree.search("cash"));
+    assert(val == "money");
+
+    //add third word: cashier
+    tree.insert("cashier", "job");
+    val = *(tree.search("cashier"));
+    assert(val == "job");
+
+    val = *(tree.search("cash"));
+    assert(val == "money");
+    val = *(tree.search("bash"));
+    assert(val == "sudo");
+
+    //add fourth word: cashier
+    tree.insert("bashes", "trash");
+    val = *(tree.search("bashes"));
+    assert(val == "trash");
+
+    val = *(tree.search("cash"));
+    assert(val == "money");
+    val = *(tree.search("bash"));
+    assert(val == "sudo");
+    val = *(tree.search("cashier"));
+    assert(val == "job");
+
+
+    //add fifth word: cashes
+    tree.insert("cashes", "moola");
+    val = *(tree.search("cashes"));
+    assert(val == "moola");
+
+    val = *(tree.search("cash"));
+    assert(val == "money");
+    val = *(tree.search("bash"));
+    assert(val == "sudo");
+    val = *(tree.search("cashier"));
+    assert(val == "job");
+    val = *(tree.search("bashes"));
+    assert(val == "trash");
+
+
+    //add sixth word: case
+    tree.insert("case", "closed");
+    val = *(tree.search("case"));
+    assert(val == "closed");
+
+    //make sure first word is still in there
+    val = *(tree.search("cash"));
+    assert(val == "money");
+
+    //add seventh word: call
+    tree.insert("call", "me");
+    val = *(tree.search("call"));
+    assert(val == "me");
+
+    //add eighth word: ca
+    tree.insert("ca", "lifornia");
+    val = *(tree.search("ca"));
+    assert(val == "lifornia");
+
+    //make sure previous words are still there
+    val = *(tree.search("cash"));
+    assert(val == "money");
+    val = *(tree.search("bash"));
+    assert(val == "sudo");
+    val = *(tree.search("cashier"));
+    assert(val == "job");
+    val = *(tree.search("bashes"));
+    assert(val == "trash");
+    val = *(tree.search("cashes"));
+    assert(val == "moola");
+    val = *(tree.search("case"));
+    assert(val == "closed");
+    val = *(tree.search("call"));
+    assert(val == "me");
+    val = *(tree.search("ca"));
+    assert(val == "lifornia");
+
+    //add ninth word: ba
+    tree.insert("ba", "kery");
+    val = *(tree.search("ba"));
+    assert(val == "kery");
+
+    //make sure previous words are still there
+    val = *(tree.search("cash"));
+    assert(val == "money");
+    val = *(tree.search("bash"));
+    assert(val == "sudo");
+    val = *(tree.search("cashier"));
+    assert(val == "job");
+    val = *(tree.search("bashes"));
+    assert(val == "trash");
+    val = *(tree.search("cashes"));
+    assert(val == "moola");
+    val = *(tree.search("case"));
+    assert(val == "closed");
+    val = *(tree.search("call"));
+    assert(val == "me");
+    val = *(tree.search("ca"));
+    assert(val == "lifornia");
+
+
+}
 
 int main()
 {
-    string sad = "a";
-    string jenny = sad.substr(1,1);
-    
-    
-    RadixTree<int> r;
-    
-    r.insert("carpet", 4);
-    r.insert("car",3);
-    
-    r.insert("carpeter", 5);
-    
-    
-    r.insert("carppy", 10);
-    
-    r.insert("titty", 11);
-    r.insert("titts", 15);
-    r.insert("titty", 20);
-    
-    r.insert("titt", -69);
-    
-    testRT3();
-    
-
+    testRadixTree();
     std::cout<<"Hello World"<<std::endl;
     return 0;
 }

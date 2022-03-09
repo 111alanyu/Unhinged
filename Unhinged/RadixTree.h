@@ -42,39 +42,9 @@ private:
 template <typename ValueType>
 ValueType* RadixTree<ValueType>::search(std::string key) const
 {
-    /*
-    Node* traverseNode = &m_dummy;
-    int elmFound = 0;
-    
-    while(traverseNode !=  nullptr && !traverseNode -> m_atEnd && elmFound < key.length())
-    {
-        char cur = key[elmFound];
-        int curI = cur;
-        if(traverseNode -> m_childrexn[curI] != nullptr)
-        {
-            if(traverseNode -> m_children[curI] -> m_finish == key.substr(elmFound, traverseNode -> m_children[curI] -> m_finish.size()))
-            {
-                elmFound += traverseNode -> m_children[curI] -> m_finish.size();
-            }
-            traverseNode = traverseNode -> m_children[curI];
-        }else
-        {
-            traverseNode = nullptr;
-        }
-    }
-    
-    if(traverseNode == nullptr)
-    {
-        return nullptr;
-    }else{
-        return traverseNode -> m_val;
-    }
-     */
-    
     int i = 0;
     Node* ptr = new Node;
     ptr = m_dummy;
-    std::cerr<<key.size()<<std::endl;
     while (i < key.size())
     {
         int index = key.at(i);
@@ -146,16 +116,6 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             }
         }
         
-        /*
-        if(j == 0)
-        {
-            std::cerr<<"J at 0"<<std::endl;
-            Node* input3 = new Node;
-            input3 -> m_finish = key.substr(i, key.size() - i);
-            return;
-        }
-         */
-        
         
         std::string holder = ptr -> m_finish.substr(0, j);
         //std::cerr<<ptr -> m_finish.size()<<std::endl;
@@ -199,7 +159,6 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                 return;
             }
         }else{//case 3: we went through both the node and the input, and we have not reached the end of either of them
-            std::cerr<<"Case 3"<<std::endl;
             Node* stepChild = new Node; //create a new node
             stepChild -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size());
             for(int k = 0; k < 128; k++) //copy the children
