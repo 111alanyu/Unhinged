@@ -39,7 +39,7 @@ int main()
     string sad = "a";
     string jenny = sad.substr(1,1);
     
-    /*
+    
     RadixTree<int> r;
     
     r.insert("carpet", 4);
@@ -55,8 +55,8 @@ int main()
     r.insert("titty", 20);
     
     r.insert("titt", -69);
-    */
-    testRT3();
+    
+    //testRT3();
     
 
     std::cout<<"Hello World"<<std::endl;

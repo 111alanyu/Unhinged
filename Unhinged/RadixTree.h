@@ -92,8 +92,7 @@ ValueType* RadixTree<ValueType>::search(std::string key) const
     }
     if(i == key.size())
     {
-        ValueType* const a = &(ptr -> m_val);
-        return a;
+        return &(ptr -> m_val);
     }
     
     return nullptr;
@@ -108,12 +107,12 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
         Node* n = new Node;
         n -> m_finish = key;
         n -> m_val = value;
+        n -> m_atEnd = true;
         m_dummy.m_children[key.at(0)] = n;
         return;
     }
     Node* ptr = new Node;
     ptr = m_dummy.m_children[key.at(0)];
-    Node* ptrB = &m_dummy;
     
     int i = 0;
     while(i < key.size())
@@ -123,23 +122,18 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
         //change
         
         //CASE: The key and the node string is the same
-        int v = key.size();
-        std::cerr<<"(((" <<key.substr(i, v - i)<<std::endl;
-        std::cerr<<")))" <<ptr -> m_finish<<std::endl;
-        if(ptr -> m_finish == key.substr(i, v - i))
+        if(ptr -> m_finish == key.substr(i, (int) key.size() - i))
         {
-            if(ptr -> m_atEnd)
+            ptr -> m_val = value;
+            if(!ptr -> m_atEnd) //this checks if the node is already marked that it is an "end node"
             {
-                ptr -> m_val = value;
-            }else{
                 ptr -> m_atEnd = true;
-                ptr -> m_val = value;
             }
             return;
         }
         
         
-    
+        //Itterator to see Common Denominator
         while(i < key.size() && j < ptr -> m_finish.size())
         {
             if(key.at(i) == ptr -> m_finish.at(j))
@@ -151,45 +145,47 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             }
         }
         
+        /*
         if(j == 0)
         {
             std::cerr<<"J at 0"<<std::endl;
             Node* input3 = new Node;
             input3 -> m_finish = key.substr(i, key.size() - i);
-            ptrB -> m_children[key.at(i)] = input3;
             return;
         }
+         */
+        
         
         std::string holder = ptr -> m_finish.substr(0, j);
-        std::cerr<<ptr -> m_finish.size()<<std::endl;
+        //std::cerr<<ptr -> m_finish.size()<<std::endl;
         if(i == key.size()) //case 2: we went through the entire input, and there is more node
         {
             
-            Node* stepChild = new Node;
+            Node* stepChild = new Node; //creates stepChild
             stepChild -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size());
-            
             stepChild -> m_val = ptr -> m_val;
-            for(int k = 0; k < 128; k++)
+            stepChild -> m_atEnd = ptr -> m_atEnd;
+            for(int k = 0; k < 128; k++) //copies over the ptr's children to the step child
             {
                 stepChild -> m_children[k] = ptr -> m_children[k];
                 ptr -> m_children[k] = nullptr;
             }
+            
+            //resets ptr's value and string
+            //string is the common denominator
             ptr -> m_val = value;
             ptr -> m_finish = ptr -> m_finish.substr(0, j);
+            
+            //after changing ptr to the CMD, set it's child to the step child we made
             ptr -> m_children[stepChild -> m_finish.at(0)] = stepChild;
             ptr -> m_atEnd = true;
             
             
-            
-            
-            //the i is already at the point, so no need to remove the prefix
-            std::cerr<<"case 2"<<std::endl;
-            
+            //M's suggestion
+            return;
         }else if(j == ptr -> m_finish.size()){ //case 1: we went through the entire node, and there is more input
-            std::cerr<<"case 1"<<std::endl;
             
-            
-            if(ptr -> m_children[key.at(i)])
+            if(ptr -> m_children[key.at(i)] != nullptr) //checks if a node starting with the first different letter in key exists at the index
             {
                 ptr = ptr -> m_children[key.at(i)];
             }else{
@@ -197,27 +193,28 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                 Node* child = new Node;
                 child -> m_finish = key.substr(i, key.size());
                 child -> m_val = value;
+                child -> m_atEnd = true;
                 ptr -> m_children[key.at(i)] = child;
                 return;
             }
         }else{//case 3: we went through both the node and the input, and we have not reached the end of either of them
             std::cerr<<"Case 3"<<std::endl;
-            //TODO: This is what we need to fix, we are one too deep
-            Node* stepChild = new Node;
+            Node* stepChild = new Node; //create a new node
             stepChild -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size());
-            
-            for(int k = 0; k < 128; k++)
+            for(int k = 0; k < 128; k++) //copy the children
             {
                 stepChild -> m_children[k] = ptr -> m_children[k];
                 ptr -> m_children[k] = nullptr;
             }
-            stepChild -> m_val = ptr -> m_val;
+            stepChild -> m_val = ptr -> m_val; //copy the
+            stepChild -> m_atEnd = true;
+            
             
             Node* moveInChild = new Node;
             moveInChild -> m_finish = key.substr(i, key.size());
             moveInChild -> m_val = value;
-            stepChild -> m_val = ptr -> m_val;
-            //ptr -> m_val;
+            moveInChild -> m_atEnd = true;
+
             
             ptr -> m_finish = ptr -> m_finish.substr(0, j);
             ptr -> m_children[stepChild -> m_finish.at(0)] = stepChild;
@@ -226,10 +223,6 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             return;
 
         }
-        
-        
-      
-        
     }
    
 }
