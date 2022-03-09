@@ -7,11 +7,14 @@ int main()
     string sad = "a";
     string jenny = sad.substr(1,1);
     
-    /*
+    
     RadixTree<int> r;
-    r.insert("aaaa", 6);
-    r.insert("abcd", 5);
-    */
+    r.insert("carpet", 5);
+    r.insert("car", 6);
+    
+    
+    
+    
     
 
     std::cout<<"Hello World"<<std::endl;

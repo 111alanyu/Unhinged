@@ -73,6 +73,7 @@ ValueType* RadixTree<ValueType>::search(std::string key) const
 template <typename ValueType>
 void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
 {
+    
     if(m_dummy.m_children[key.at(0)] == nullptr)
     {
         Node* n = new Node;
@@ -83,13 +84,13 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
     }
     Node* ptr = new Node;
     ptr = m_dummy.m_children[key.at(0)];
+    Node* ptrB = ptr;
     
     int i = 0;
-    while(i != key.size())
+    while(i < key.size())
     {
 
         int j = 0;
-        
         //change
         
         //CASE: The key and the node string is the same
@@ -115,6 +116,35 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             }
         }
         
+        std::string holder = ptr -> m_finish.substr(0, j);
+        std::cerr<<ptr -> m_finish.size()<<std::endl;
+        if(i == key.size()) //case 2: we went through the entire input, and there is more node
+        {
+            Node* input2 = new Node;
+            input2 -> m_finish = holder;
+            
+            
+            //the i is already at the point, so no need to remove the prefix
+            std::cerr<<"case 2"<<std::endl;
+            
+        }else if(j == ptr -> m_finish.size()){ //case 1: we went through the entire node, and there is more input
+            std::cerr<<"case 1"<<std::endl;
+            std::cerr<<key.at(i)<<std::endl;
+            if(ptr -> m_children[key.at(i)] == nullptr)
+            {
+                Node* input = new Node();
+                input -> m_finish = key.substr(j, key.size() - j);
+                ptr -> m_children[input -> m_finish.at(0)] = input;
+                return;
+            }else{
+                ptr =  ptr -> m_children[key.at(i)];
+                break;
+            }
+        }else{//case 3: we went through both the node and the input, and we have not reached the end of either of them
+            std::cerr<<"case 3"<<std::endl;
+            return;
+        }
+        /*
         if(j < ptr -> m_finish.size())
         {//we do not reach the end of the ptr
             //we are creating a new node that will be the parent of all these nodes
@@ -139,7 +169,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             
             
         }
-        
+        */
         
         
       
