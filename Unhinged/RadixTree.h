@@ -32,7 +32,7 @@ private:
             
         }
     };
-    Node m_dummy;
+    Node* m_dummy;
     
 
     
@@ -72,8 +72,8 @@ ValueType* RadixTree<ValueType>::search(std::string key) const
      */
     
     int i = 0;
-    const Node* ptr = new Node;
-    ptr = &m_dummy;
+    Node* ptr = new Node;
+    ptr = m_dummy;
     std::cerr<<key.size()<<std::endl;
     while (i < key.size())
     {
@@ -92,7 +92,8 @@ ValueType* RadixTree<ValueType>::search(std::string key) const
     }
     if(i == key.size())
     {
-        return &(ptr -> m_val);
+        ValueType* a = &(ptr -> m_val);
+        return a;
     }
     
     return nullptr;
@@ -102,17 +103,17 @@ template <typename ValueType>
 void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
 {
     
-    if(m_dummy.m_children[key.at(0)] == nullptr)
+    if(m_dummy -> m_children[key.at(0)] == nullptr)
     {
         Node* n = new Node;
         n -> m_finish = key;
         n -> m_val = value;
         n -> m_atEnd = true;
-        m_dummy.m_children[key.at(0)] = n;
+        m_dummy -> m_children[key.at(0)] = n;
         return;
     }
     Node* ptr = new Node;
-    ptr = m_dummy.m_children[key.at(0)];
+    ptr = m_dummy -> m_children[key.at(0)];
     
     int i = 0;
     while(i < key.size())
@@ -230,7 +231,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
 template <typename ValueType>
 RadixTree<ValueType>::RadixTree()
 {
-    
+    m_dummy = new Node;
 }
 
 template <typename ValueType>

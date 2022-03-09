@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>E4E0D2FA-BE05-49DF-BA58-223CFBA93C46</key>
+		<key>BF663BCA-A3FD-4690-958B-B3A5CDA53FDC</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogMajorGroupSection</string>
@@ -15,24 +15,24 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.tool</string>
 			<key>fileName</key>
-			<string>E4E0D2FA-BE05-49DF-BA58-223CFBA93C46.xcactivitylog</string>
+			<string>BF663BCA-A3FD-4690-958B-B3A5CDA53FDC.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>E</string>
+				<string>W</string>
 			</dict>
 			<key>signature</key>
 			<string>Unhinged-dtccmwwxabckhjbvrpzpkvwzdwnl</string>
 			<key>timeStartedRecording</key>
-			<real>668510872.23096395</real>
+			<real>668511165.91529596</real>
 			<key>timeStoppedRecording</key>
-			<real>668510872.56512702</real>
+			<real>668511166.34608698</real>
 			<key>title</key>
 			<string>Build target Unhinged</string>
 			<key>uniqueIdentifier</key>
-			<string>E4E0D2FA-BE05-49DF-BA58-223CFBA93C46</string>
+			<string>BF663BCA-A3FD-4690-958B-B3A5CDA53FDC</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>

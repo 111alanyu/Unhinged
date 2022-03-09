@@ -56,7 +56,7 @@ int main()
     
     r.insert("titt", -69);
     
-    //testRT3();
+    testRT3();
     
 
     std::cout<<"Hello World"<<std::endl;
