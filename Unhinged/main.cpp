@@ -2,12 +2,44 @@
 #include "RadixTree.h"
 
 using namespace std;
+void testRT3() {
+    RadixTree<std::string> tree;
+    string val;
+
+    tree.insert("Ahart@gmail.com", "1");
+    
+    val = *(tree.search("Ahart@gmail.com"));
+    assert(val == "1");
+    
+
+    tree.insert("AmJuare@gmail.com", "2");
+    
+    
+    val = *(tree.search("AmJuare@gmail.com"));
+    assert(val == "2");
+    val = *(tree.search("Ahart@gmail.com"));
+    assert(val == "1");
+     
+    
+    tree.insert("AmH74@gmail.com", "3");
+    
+    
+    val = *(tree.search("AmH74@gmail.com"));
+    assert(val == "3");
+    val = *(tree.search("AmJuare@gmail.com"));
+    assert(val == "2");
+    val = *(tree.search("Ahart@gmail.com"));
+    assert(val == "1");
+     
+}
+
+
 int main()
 {
     string sad = "a";
     string jenny = sad.substr(1,1);
     
-    
+    /*
     RadixTree<int> r;
     
     r.insert("carpet", 4);
@@ -23,7 +55,8 @@ int main()
     r.insert("titty", 20);
     
     r.insert("titt", -69);
-    
+    */
+    testRT3();
     
 
     std::cout<<"Hello World"<<std::endl;

@@ -42,6 +42,7 @@ private:
 template <typename ValueType>
 ValueType* RadixTree<ValueType>::search(std::string key) const
 {
+    /*
     Node* traverseNode = &m_dummy;
     int elmFound = 0;
     
@@ -68,6 +69,34 @@ ValueType* RadixTree<ValueType>::search(std::string key) const
     }else{
         return traverseNode -> m_val;
     }
+     */
+    
+    int i = 0;
+    const Node* ptr = new Node;
+    ptr = &m_dummy;
+    std::cerr<<key.size()<<std::endl;
+    while (i < key.size())
+    {
+        int index = key.at(i);
+        
+        if(ptr -> m_children[index] != nullptr)
+        {
+            ptr = ptr -> m_children[index];
+            if(ptr -> m_finish == key.substr(i, ptr -> m_finish.size()))
+            {
+                i += ptr -> m_finish.size();
+            }
+        }else{
+            return nullptr;
+        }
+    }
+    if(i == key.size())
+    {
+      
+        return &(ptr -> m_val);
+    }
+    
+    return nullptr;
 }
 
 template <typename ValueType>
@@ -188,7 +217,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             moveInChild -> m_finish = key.substr(i, key.size());
             moveInChild -> m_val = value;
             stepChild -> m_val = ptr -> m_val;
-            ptr -> m_val = 0;
+            //ptr -> m_val;
             
             ptr -> m_finish = ptr -> m_finish.substr(0, j);
             ptr -> m_children[stepChild -> m_finish.at(0)] = stepChild;
