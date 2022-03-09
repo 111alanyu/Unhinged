@@ -94,7 +94,10 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
         //change
         
         //CASE: The key and the node string is the same
-        if(ptr -> m_finish == key)
+        int v = key.size();
+        std::cerr<<"(((" <<key.substr(i, v - i)<<std::endl;
+        std::cerr<<")))" <<ptr -> m_finish<<std::endl;
+        if(ptr -> m_finish == key.substr(i, v - i))
         {
             if(ptr -> m_atEnd)
             {
@@ -183,6 +186,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             ptr -> m_finish = ptr -> m_finish.substr(0, j);
             ptr -> m_children[stepChild -> m_finish.at(0)] = stepChild;
             ptr -> m_children[moveInChild -> m_finish.at(0)] = moveInChild;
+            ptr -> m_atEnd = false;
             return;
 
         }

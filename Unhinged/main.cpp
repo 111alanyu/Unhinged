@@ -19,7 +19,7 @@ int main()
     
     r.insert("titty", 11);
     r.insert("titts", 15);
-    //r.insert("titty", 20);
+    r.insert("titty", 20);
     
     
 
