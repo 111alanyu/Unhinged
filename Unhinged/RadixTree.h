@@ -92,8 +92,8 @@ ValueType* RadixTree<ValueType>::search(std::string key) const
     }
     if(i == key.size())
     {
-      
-        return &(ptr -> m_val);
+        ValueType* const a = &(ptr -> m_val);
+        return a;
     }
     
     return nullptr;

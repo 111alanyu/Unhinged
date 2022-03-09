@@ -312,6 +312,74 @@
 			<key>uniqueIdentifier</key>
 			<string>123B4530-F902-40ED-93E6-9346142A08B2</string>
 		</dict>
+		<key>201AA471-83F8-4EBC-BE8E-868CC4BE5B91</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>201AA471-83F8-4EBC-BE8E-868CC4BE5B91.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507330.43844795</real>
+			<key>timeStoppedRecording</key>
+			<real>668507330.80337203</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>201AA471-83F8-4EBC-BE8E-868CC4BE5B91</string>
+		</dict>
+		<key>20574439-BD75-45C1-807C-6EB8B78C9610</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>20574439-BD75-45C1-807C-6EB8B78C9610.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507291.49679005</real>
+			<key>timeStoppedRecording</key>
+			<real>668507291.85528696</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>20574439-BD75-45C1-807C-6EB8B78C9610</string>
+		</dict>
 		<key>21926CEE-AACB-496A-A751-63403E3FE392</key>
 		<dict>
 			<key>className</key>
@@ -481,6 +549,40 @@
 			<string>Build Unhinged</string>
 			<key>uniqueIdentifier</key>
 			<string>2600C596-9D4B-4D6C-94DB-2308584D949B</string>
+		</dict>
+		<key>27453E9C-E77D-4D5E-AE2D-5DB692B0C803</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>27453E9C-E77D-4D5E-AE2D-5DB692B0C803.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507404.16246998</real>
+			<key>timeStoppedRecording</key>
+			<real>668507404.53508306</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>27453E9C-E77D-4D5E-AE2D-5DB692B0C803</string>
 		</dict>
 		<key>2E823272-67D3-4184-9800-185C163A8D22</key>
 		<dict>
@@ -1162,6 +1264,40 @@
 			<key>uniqueIdentifier</key>
 			<string>5784BB5B-25B2-423D-95E4-372E74ECD823</string>
 		</dict>
+		<key>58B47496-77B8-465C-A76A-B736C09CB88E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>58B47496-77B8-465C-A76A-B736C09CB88E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507220.06074798</real>
+			<key>timeStoppedRecording</key>
+			<real>668507220.430825</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>58B47496-77B8-465C-A76A-B736C09CB88E</string>
+		</dict>
 		<key>58F080F3-2B12-476C-85DC-880BF82A69D9</key>
 		<dict>
 			<key>className</key>
@@ -1196,6 +1332,40 @@
 			<key>uniqueIdentifier</key>
 			<string>58F080F3-2B12-476C-85DC-880BF82A69D9</string>
 		</dict>
+		<key>5EA9BB17-D71F-455B-B3C8-45C122AEDC00</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>5EA9BB17-D71F-455B-B3C8-45C122AEDC00.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507262.43049705</real>
+			<key>timeStoppedRecording</key>
+			<real>668507262.80734503</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>5EA9BB17-D71F-455B-B3C8-45C122AEDC00</string>
+		</dict>
 		<key>5ED32C5B-7356-47BA-8181-7686CE4BFFA5</key>
 		<dict>
 			<key>className</key>
@@ -1229,6 +1399,40 @@
 			<string>Build Unhinged</string>
 			<key>uniqueIdentifier</key>
 			<string>5ED32C5B-7356-47BA-8181-7686CE4BFFA5</string>
+		</dict>
+		<key>5FAD40E4-887D-4A98-8B35-88E6F532EF14</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>5FAD40E4-887D-4A98-8B35-88E6F532EF14.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507299.29396105</real>
+			<key>timeStoppedRecording</key>
+			<real>668507299.65320504</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>5FAD40E4-887D-4A98-8B35-88E6F532EF14</string>
 		</dict>
 		<key>61383D07-4004-4A7E-888B-88FEE3428C75</key>
 		<dict>
@@ -1570,6 +1774,40 @@
 			<key>uniqueIdentifier</key>
 			<string>7DC2AD6A-CF2C-4FD1-89AE-E915214B9656</string>
 		</dict>
+		<key>816ED6C8-1B3A-4169-9813-FB7090454F6C</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>816ED6C8-1B3A-4169-9813-FB7090454F6C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507306.81034994</real>
+			<key>timeStoppedRecording</key>
+			<real>668507307.16992402</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>816ED6C8-1B3A-4169-9813-FB7090454F6C</string>
+		</dict>
 		<key>8377EF25-C904-422D-A47C-D43D0A7D2A19</key>
 		<dict>
 			<key>className</key>
@@ -1637,6 +1875,40 @@
 			<string>Build Unhinged</string>
 			<key>uniqueIdentifier</key>
 			<string>85F492D0-F911-4DF6-BC98-0B3AADD86D58</string>
+		</dict>
+		<key>894F0007-C51E-4B6D-A4D6-1F04F132A42F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>894F0007-C51E-4B6D-A4D6-1F04F132A42F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507247.41949701</real>
+			<key>timeStoppedRecording</key>
+			<real>668507247.78914702</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>894F0007-C51E-4B6D-A4D6-1F04F132A42F</string>
 		</dict>
 		<key>89550494-CD53-46D3-9949-55C3FCE868F7</key>
 		<dict>
@@ -2114,6 +2386,74 @@
 			<key>uniqueIdentifier</key>
 			<string>9F63039E-85B8-4784-AB94-591FD96DC866</string>
 		</dict>
+		<key>A0472527-9E21-4412-9839-A55E3BED072B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A0472527-9E21-4412-9839-A55E3BED072B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507282.82501197</real>
+			<key>timeStoppedRecording</key>
+			<real>668507283.18746996</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>A0472527-9E21-4412-9839-A55E3BED072B</string>
+		</dict>
+		<key>A061F0C5-63C2-4FD7-BB90-72FF51A9E27C</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A061F0C5-63C2-4FD7-BB90-72FF51A9E27C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507383.71926904</real>
+			<key>timeStoppedRecording</key>
+			<real>668507384.09451497</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>A061F0C5-63C2-4FD7-BB90-72FF51A9E27C</string>
+		</dict>
 		<key>A4D45E6B-2144-4C2C-B597-59F334D78F6E</key>
 		<dict>
 			<key>className</key>
@@ -2147,6 +2487,40 @@
 			<string>Build Unhinged</string>
 			<key>uniqueIdentifier</key>
 			<string>A4D45E6B-2144-4C2C-B597-59F334D78F6E</string>
+		</dict>
+		<key>ACE93863-F6D1-49C5-9041-DD5D8CE1C267</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>ACE93863-F6D1-49C5-9041-DD5D8CE1C267.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507255.77542996</real>
+			<key>timeStoppedRecording</key>
+			<real>668507256.15537095</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>ACE93863-F6D1-49C5-9041-DD5D8CE1C267</string>
 		</dict>
 		<key>B15079A7-746A-4688-8F4A-0BDACE343DDC</key>
 		<dict>
@@ -2760,6 +3134,74 @@
 			<key>uniqueIdentifier</key>
 			<string>C7DC026A-68C4-46E4-AFE1-F6F486DBDC1C</string>
 		</dict>
+		<key>C899CAFF-B20C-4700-A96B-9B3CD1BCB8DD</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C899CAFF-B20C-4700-A96B-9B3CD1BCB8DD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507310.30999601</real>
+			<key>timeStoppedRecording</key>
+			<real>668507310.67289996</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>C899CAFF-B20C-4700-A96B-9B3CD1BCB8DD</string>
+		</dict>
+		<key>CAE4EF88-4F44-490B-BAF2-BEEA4F25B4A6</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>CAE4EF88-4F44-490B-BAF2-BEEA4F25B4A6.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507189.79520905</real>
+			<key>timeStoppedRecording</key>
+			<real>668507190.17924595</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>CAE4EF88-4F44-490B-BAF2-BEEA4F25B4A6</string>
+		</dict>
 		<key>CC66B942-4F66-435D-B51C-21228D2E062D</key>
 		<dict>
 			<key>className</key>
@@ -2963,6 +3405,40 @@
 			<string>Build Unhinged</string>
 			<key>uniqueIdentifier</key>
 			<string>D5EE5EE3-683C-4498-B78A-4A11A68FFFB6</string>
+		</dict>
+		<key>D7C197FA-9EED-49A3-946A-8D70CE4EA5E7</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D7C197FA-9EED-49A3-946A-8D70CE4EA5E7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507193.90669596</real>
+			<key>timeStoppedRecording</key>
+			<real>668507194.277174</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>D7C197FA-9EED-49A3-946A-8D70CE4EA5E7</string>
 		</dict>
 		<key>DC52BD00-B588-4710-87B4-1F230A1822F2</key>
 		<dict>
@@ -3644,6 +4120,40 @@
 			<key>uniqueIdentifier</key>
 			<string>F98CECB9-A52B-479C-825F-6D465A442EC2</string>
 		</dict>
+		<key>FA524C5D-530C-4A78-8FF3-E0CC2B2214D6</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>FA524C5D-530C-4A78-8FF3-E0CC2B2214D6.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507233.51476896</real>
+			<key>timeStoppedRecording</key>
+			<real>668507233.98990405</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>FA524C5D-530C-4A78-8FF3-E0CC2B2214D6</string>
+		</dict>
 		<key>FA7C14A1-C981-474E-A7BA-7894F67CB1E7</key>
 		<dict>
 			<key>className</key>
@@ -3711,6 +4221,40 @@
 			<string>Build Unhinged</string>
 			<key>uniqueIdentifier</key>
 			<string>FC29C5C2-D59A-4A20-8371-19E0894CF5EA</string>
+		</dict>
+		<key>FE001A69-117F-43FF-B87F-99D1D59DC57B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>FE001A69-117F-43FF-B87F-99D1D59DC57B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Unhinged project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Unhinged</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Unhinged</string>
+			<key>timeStartedRecording</key>
+			<real>668507270.06511998</real>
+			<key>timeStoppedRecording</key>
+			<real>668507270.45360506</real>
+			<key>title</key>
+			<string>Build Unhinged</string>
+			<key>uniqueIdentifier</key>
+			<string>FE001A69-117F-43FF-B87F-99D1D59DC57B</string>
 		</dict>
 		<key>FEC4CE7C-ACB3-4609-876D-9C01EAD7E704</key>
 		<dict>
