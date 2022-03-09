@@ -17,7 +17,9 @@ int main()
     
     r.insert("carppy", 10);
     
-    
+    r.insert("titty", 11);
+    r.insert("titts", 15);
+    //r.insert("titty", 20);
     
     
 

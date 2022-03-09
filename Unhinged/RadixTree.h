@@ -103,6 +103,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                 ptr -> m_finish = true;
                 ptr -> m_val = value;
             }
+            return;
         }
         
         
@@ -174,6 +175,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                 stepChild -> m_children[k] = ptr -> m_children[k];
                 ptr -> m_children[k] = nullptr;
             }
+            stepChild -> m_val = ptr -> m_val;
             
             Node* moveInChild = new Node;
             moveInChild -> m_finish = key.substr(i, key.size());
@@ -181,7 +183,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             ptr -> m_finish = ptr -> m_finish.substr(0, j);
             ptr -> m_children[stepChild -> m_finish.at(0)] = stepChild;
             ptr -> m_children[moveInChild -> m_finish.at(0)] = moveInChild;
-            
+            return;
 
         }
         
