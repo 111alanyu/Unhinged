@@ -116,6 +116,15 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             }
         }
         
+        if(j == 0)
+        {
+            std::cerr<<"J at 0"<<std::endl;
+            Node* input3 = new Node;
+            input3 -> m_finish = key.substr(i, key.size() - i);
+            ptr -> m_children[key.at(i)] = input3;
+            return;
+        }
+        
         std::string holder = ptr -> m_finish.substr(0, j);
         std::cerr<<ptr -> m_finish.size()<<std::endl;
         if(i == key.size()) //case 2: we went through the entire input, and there is more node
@@ -155,6 +164,8 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
                
             }
         }else{//case 3: we went through both the node and the input, and we have not reached the end of either of them
+            
+            //TODO: This is what we need to fix, we are one too deep
             std::cerr<<"case 3"<<std::endl;
             Node* input2 = new Node;
             input2 -> m_finish = holder;
@@ -165,7 +176,6 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
             ptr -> m_finish = ptr -> m_finish.substr(j, ptr -> m_finish.size() - j);
             input2 -> m_children[ptr -> m_finish.at(0)] = ptr;
             
-            return;
         }
         
         
