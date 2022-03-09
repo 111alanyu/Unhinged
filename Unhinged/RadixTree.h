@@ -84,7 +84,7 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
     }
     Node* ptr = new Node;
     ptr = m_dummy.m_children[key.at(0)];
-    Node* ptrB = ptr;
+    Node* ptrB = &m_dummy;
     
     int i = 0;
     while(i < key.size())
