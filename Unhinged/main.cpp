@@ -3,27 +3,37 @@
 
 using namespace std;
 void testRT3() {
-    RadixTree<std::string> tree;
-    string val;
+        RadixTree<std::string> tree;
+        string val;
 
-    tree.insert("Ahart@gmail.com", "1");
-    val = *(tree.search("Ahart@gmail.com"));
-    assert(val == "1");
+        tree.insert("Ahart@gmail.com", "1");
+        val = *(tree.search("Ahart@gmail.com"));
+        assert(val == "1");
 
-    tree.insert("AmJuare@gmail.com", "2");
-    val = *(tree.search("AmJuare@gmail.com"));
-    assert(val == "2");
-    val = *(tree.search("Ahart@gmail.com"));
-    assert(val == "1");
+        tree.insert("AmJuare@gmail.com", "2");
+        val = *(tree.search("AmJuare@gmail.com"));
+        assert(val == "2");
+        val = *(tree.search("Ahart@gmail.com"));
+        assert(val == "1");
 
-    tree.insert("AmH74@gmail.com", "3");
-    cout << *(tree.search("AmH74@gmail.com")) << endl;
-    val = *(tree.search("AmH74@gmail.com"));
-    assert(val == "3");
-    val = *(tree.search("AmJuare@gmail.com"));
-    assert(val == "2");
-    val = *(tree.search("Ahart@gmail.com"));
-    assert(val == "1");
+        tree.insert("AmH74@gmail.com", "3");
+        cout << *(tree.search("AmH74@gmail.com")) << endl;
+        val = *(tree.search("AmH74@gmail.com"));
+        assert(val == "3");
+        val = *(tree.search("AmJuare@gmail.com"));
+        assert(val == "2");
+        val = *(tree.search("Ahart@gmail.com"));
+        assert(val == "1");
+        
+        tree.insert("AmH57@gmail.com", "4");
+        val = *(tree.search("AmH57@gmail.com"));
+        assert(val == "4");
+        val = *(tree.search("AmH74@gmail.com"));
+        assert(val == "3");
+        val = *(tree.search("AmJuare@gmail.com"));
+        assert(val == "2");
+        val = *(tree.search("Ahart@gmail.com"));
+        assert(val == "1");
 }
 
 void testRadixTree() {
@@ -147,6 +157,7 @@ void testRadixTree() {
 
 int main()
 {
+    testRT3();
     testRadixTree();
     std::cout<<"Hello World"<<std::endl;
     return 0;
