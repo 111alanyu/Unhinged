@@ -10,10 +10,8 @@ int main()
     
     RadixTree<int> r;
     r.insert("carpet", 4);
-    r.insert("carpeter", 5);
     r.insert("car",3);
-    
-    r.insert("carpyyy", 6);
+    r.insert("carpeter", 5);
     
     
     
