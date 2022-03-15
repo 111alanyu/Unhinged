@@ -7,6 +7,7 @@
 
 #ifndef AttributeTranslator_h
 #define AttributeTranslator_h
+#include <string>
 
 class AttributeTranslator
 {

@@ -9,6 +9,7 @@
 #define PersonProfile_h
 
 #include "provided.h"
+#include "RadixTree.h"
 #include <map>
 #include <vector>
 
@@ -26,7 +27,9 @@ public:
 private:
     std::string m_name;
     std::string m_email;
-    std::vector<AttValPair> m_at;
+    RadixTree<std::string> m_tree;
+    std::vector<std::string> keys;
+    int m_numOfPairs;
 };
 
 #endif /* PersonProfile_h */

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "RadixTree.h"
+#include "AttributeTranslator.h"
 
 using namespace std;
 void testRT3() {
