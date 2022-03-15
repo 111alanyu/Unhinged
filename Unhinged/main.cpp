@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include "RadixTree.h"
 #include "AttributeTranslator.h"
@@ -164,12 +165,12 @@ int main()
     return 0;
 }
 
-
+*/
 
 
 //main.cpp
 
-/*
+
 #include "PersonProfile.h"
 #include "AttributeTranslator.h"
 #include "MemberDatabase.h"
@@ -251,4 +252,4 @@ bool findMatches(const MemberDatabase& mdb, const AttributeTranslator& at)
     return true;
 }
 
-*/
+

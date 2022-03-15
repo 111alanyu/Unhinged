@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0EBB9727E11C2C001ACC83 /* MatchMaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EBB9627E11C2C001ACC83 /* MatchMaker.cpp */; };
 		4E2EA14527D76D790074B1A5 /* PersonProfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E2EA14427D76D790074B1A5 /* PersonProfile.cpp */; };
 		4E2EA14727D772910074B1A5 /* AttributeTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E2EA14627D772910074B1A5 /* AttributeTranslator.cpp */; };
 		4EA53DD727D375DE000BC43C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EA53DD627D375DE000BC43C /* main.cpp */; };
@@ -25,6 +26,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E0EBB9427E11BFD001ACC83 /* MemberDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberDatabase.h; sourceTree = "<group>"; };
+		4E0EBB9527E11C17001ACC83 /* MatchMaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchMaker.h; sourceTree = "<group>"; };
+		4E0EBB9627E11C2C001ACC83 /* MatchMaker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MatchMaker.cpp; sourceTree = "<group>"; };
 		4E21A87627D5ACB70088B723 /* RadixTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadixTree.h; sourceTree = "<group>"; };
 		4E2EA14327D76D690074B1A5 /* PersonProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonProfile.h; sourceTree = "<group>"; };
 		4E2EA14427D76D790074B1A5 /* PersonProfile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PersonProfile.cpp; sourceTree = "<group>"; };
@@ -68,6 +72,9 @@
 			isa = PBXGroup;
 			children = (
 				4EA53DD627D375DE000BC43C /* main.cpp */,
+				4E0EBB9527E11C17001ACC83 /* MatchMaker.h */,
+				4E0EBB9627E11C2C001ACC83 /* MatchMaker.cpp */,
+				4E0EBB9427E11BFD001ACC83 /* MemberDatabase.h */,
 				4E2EA14627D772910074B1A5 /* AttributeTranslator.cpp */,
 				4E2EA14827D772A80074B1A5 /* AttributeTranslator.h */,
 				4E21A87627D5ACB70088B723 /* RadixTree.h */,
@@ -137,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E0EBB9727E11C2C001ACC83 /* MatchMaker.cpp in Sources */,
 				4E2EA14727D772910074B1A5 /* AttributeTranslator.cpp in Sources */,
 				4E2EA14527D76D790074B1A5 /* PersonProfile.cpp in Sources */,
 				4EA53DD727D375DE000BC43C /* main.cpp in Sources */,
