@@ -47,8 +47,10 @@ bool PersonProfile::GetAttVal(int attribute_num, AttValPair& attval) const
     }
     
     AttValPair a;
-    a.value = *m_tree.search(keys[attribute_num]);
+    a.value = *(m_tree.search(keys[attribute_num]));
     a.attribute = keys[attribute_num];
+    
+    attval = a;
 
     return true;
 }
