@@ -44,61 +44,62 @@ bool AttributeTranslator::Load(std::string filename)
         
         
         int i = 0;
-        while(currLine[i] != ',')
+        for(;currLine[i] != ','; i++)
         {
             source_At += currLine[i];
         }
-        
-        i = i + 1;
-        
-        while(currLine[i] != ',')
+        i++;
+        for(;currLine[i] != ','; i++)
         {
             source_Val += currLine[i];
         }
-        
-        i = i + 1;
-        
-        while(currLine[i] != ',')
+        i++;
+        for(;currLine[i] != ','; i++)
         {
             comp_At += currLine[i];
         }
-        
-        i = i + 1;
-        
-        while(currLine[i] != ',')
+        i++;
+        for(;i < currLine.size(); i++)
         {
             comp_Val += currLine[i];
         }
         
         //we will add the source together to make a key
         
-        std::string key = source_At + ',' + source_Val;
+        std::string key = source_At + "," + source_Val;
         
         std::vector<AttValPair>* alreadyIn = m_TransTree.search(key);
         if(alreadyIn == nullptr)
         {
             std::vector<AttValPair> t;
-            AttValPair inserter;
-            inserter.attribute = comp_At;
-            inserter.value = comp_Val;
-            
-            t.push_back(inserter);
+            t.push_back(AttValPair(comp_At, comp_Val));
             m_TransTree.insert(key, t);
         }else{
-            AttValPair AlInserter;
-            AlInserter.attribute = comp_At;
-            AlInserter.value = comp_Val;
-            alreadyIn -> push_back(AlInserter);
+            bool flag = false;
+            
+            for(int h = 0; h < (int) alreadyIn->size(); h++)
+            {
+                if(AttValPair(comp_At, comp_Val) == (*alreadyIn)[h])
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            
+            if(!flag)
+            {
+                alreadyIn->push_back(AttValPair(comp_At, comp_Val));
+            }
         }
     }
-    
+    iFile.close();
     return true;
 }
 
 std::vector<AttValPair> AttributeTranslator::FindCompatibleAttValPairs( const AttValPair& source) const
 {
     std::string searcher;
-    searcher = source.attribute + ',' + source.value;
+    searcher = source.attribute + "," + source.value;
     
     std::vector<AttValPair>* vec = m_TransTree.search(searcher);
     std::vector<AttValPair> ret;
@@ -112,3 +113,5 @@ std::vector<AttValPair> AttributeTranslator::FindCompatibleAttValPairs( const At
         return (*vec);
     }
 }
+
+

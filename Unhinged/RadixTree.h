@@ -7,30 +7,42 @@
 
 #ifndef RadixTree_h
 #define RadixTree_h
-
+#include "provided.h"
+#include <string>
 
 
 template <typename ValueType>
 class RadixTree
 {
 public:
-    RadixTree();
-    ~RadixTree();
+    RadixTree()
+    {
+        m_dummy = new Node;
+    }
+    ~RadixTree()
+    {
+        delete m_dummy;
+    }
     void insert(std::string key, const ValueType& value);
     ValueType* search(std::string key) const;
 private:
+    
     struct Node
     {
+        Node():m_children()
+        {
+            
+        }
+        ~Node()
+        {
+            for (int i = 0; i < 128; i++)
+                delete m_children[i];
+        }
         Node* m_children [128];
         std::string m_finish;
         bool m_atEnd = true;
         ValueType m_val;
         
-
-        Node(): m_children()
-        {
-            
-        }
     };
     Node* m_dummy;
     
@@ -187,19 +199,10 @@ void RadixTree<ValueType>::insert(std::string key, const ValueType& value)
    
 }
 
-template <typename ValueType>
-RadixTree<ValueType>::RadixTree()
-{
-    m_dummy = new Node;
-}
 
-template <typename ValueType>
-RadixTree<ValueType>::~RadixTree()
-{
-    
-}
 
  
 #endif /* RadixTree_h */
+
 
 

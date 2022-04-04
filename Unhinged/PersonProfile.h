@@ -12,6 +12,7 @@
 #include "RadixTree.h"
 #include <map>
 #include <vector>
+#include <unordered_set>
 
 class PersonProfile
 {
@@ -27,8 +28,8 @@ public:
 private:
     std::string m_name;
     std::string m_email;
-    RadixTree<std::string> m_tree;
-    std::vector<std::string> keys;
+    RadixTree<std::unordered_set<std::string>> m_tree;
+    std::vector<AttValPair> keys;
     int m_numOfPairs;
 };
 

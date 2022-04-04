@@ -1,193 +1,67 @@
-
-#include <iostream>
-#include "RadixTree.h"
-#include "AttributeTranslator.h"
-
-using namespace std;
-void testRT3() {
-RadixTree<std::string> tree;
-string val;
-
-tree.insert("Ahart@gmail.com", "1");
-val = *(tree.search("Ahart@gmail.com"));
-assert(val == "1");
-
-tree.insert("AmJuare@gmail.com", "2");
-val = *(tree.search("AmJuare@gmail.com"));
-assert(val == "2");
-val = *(tree.search("Ahart@gmail.com"));
-assert(val == "1");
-
-tree.insert("AmH74@gmail.com", "3");
-cout << *(tree.search("AmH74@gmail.com")) << endl;
-val = *(tree.search("AmH74@gmail.com"));
-assert(val == "3");
-val = *(tree.search("AmJuare@gmail.com"));
-assert(val == "2");
-val = *(tree.search("Ahart@gmail.com"));
-assert(val == "1");
-    
-tree.insert("AmH57@gmail.com", "4");
-val = *(tree.search("AmH57@gmail.com"));
-assert(val == "4");
-val = *(tree.search("AmH74@gmail.com"));
-assert(val == "3");
-val = *(tree.search("AmJuare@gmail.com"));
-assert(val == "2");
-val = *(tree.search("Ahart@gmail.com"));
-assert(val == "1");
-}
-
-void testRadixTree() {
-    //initiate tree
-    RadixTree<std::string> tree;
-
-    //insert first word: cash
-    tree.insert("cash", "money");
-    std::string val;
-    val = *(tree.search("cash"));
-    assert(val == "money");
-
-    //insert second word: bash
-    tree.insert("bash", "sudo");
-    val = *(tree.search("bash"));
-    assert(val == "sudo");
-
-    val = *(tree.search("cash"));
-    assert(val == "money");
-
-    //add third word: cashier
-    tree.insert("cashier", "job");
-    val = *(tree.search("cashier"));
-    assert(val == "job");
-
-    val = *(tree.search("cash"));
-    assert(val == "money");
-    val = *(tree.search("bash"));
-    assert(val == "sudo");
-
-    //add fourth word: cashier
-    tree.insert("bashes", "trash");
-    val = *(tree.search("bashes"));
-    assert(val == "trash");
-
-    val = *(tree.search("cash"));
-    assert(val == "money");
-    val = *(tree.search("bash"));
-    assert(val == "sudo");
-    val = *(tree.search("cashier"));
-    assert(val == "job");
-
-
-    //add fifth word: cashes
-    tree.insert("cashes", "moola");
-    val = *(tree.search("cashes"));
-    assert(val == "moola");
-
-    val = *(tree.search("cash"));
-    assert(val == "money");
-    val = *(tree.search("bash"));
-    assert(val == "sudo");
-    val = *(tree.search("cashier"));
-    assert(val == "job");
-    val = *(tree.search("bashes"));
-    assert(val == "trash");
-
-
-    //add sixth word: case
-    tree.insert("case", "closed");
-    val = *(tree.search("case"));
-    assert(val == "closed");
-
-    //make sure first word is still in there
-    val = *(tree.search("cash"));
-    assert(val == "money");
-
-    //add seventh word: call
-    tree.insert("call", "me");
-    val = *(tree.search("call"));
-    assert(val == "me");
-
-    //add eighth word: ca
-    tree.insert("ca", "lifornia");
-    val = *(tree.search("ca"));
-    assert(val == "lifornia");
-
-    //make sure previous words are still there
-    val = *(tree.search("cash"));
-    assert(val == "money");
-    val = *(tree.search("bash"));
-    assert(val == "sudo");
-    val = *(tree.search("cashier"));
-    assert(val == "job");
-    val = *(tree.search("bashes"));
-    assert(val == "trash");
-    val = *(tree.search("cashes"));
-    assert(val == "moola");
-    val = *(tree.search("case"));
-    assert(val == "closed");
-    val = *(tree.search("call"));
-    assert(val == "me");
-    val = *(tree.search("ca"));
-    assert(val == "lifornia");
-
-    //add ninth word: ba
-    tree.insert("ba", "kery");
-    val = *(tree.search("ba"));
-    assert(val == "kery");
-
-    //make sure previous words are still there
-    val = *(tree.search("cash"));
-    assert(val == "money");
-    val = *(tree.search("bash"));
-    assert(val == "sudo");
-    val = *(tree.search("cashier"));
-    assert(val == "job");
-    val = *(tree.search("bashes"));
-    assert(val == "trash");
-    val = *(tree.search("cashes"));
-    assert(val == "moola");
-    val = *(tree.search("case"));
-    assert(val == "closed");
-    val = *(tree.search("call"));
-    assert(val == "me");
-    val = *(tree.search("ca"));
-    assert(val == "lifornia");
-
-
-}
-
-int main()
-{
-    testRT3();
-    testRadixTree();
-    std::cout<<"Hello World"<<std::endl;
-    return 0;
-}
-
-
-
-
-/*
- 
-
-//main.cpp
-
-
+////main.cpp
+//
 #include "PersonProfile.h"
 #include "AttributeTranslator.h"
 #include "MemberDatabase.h"
 #include "MatchMaker.h"
 #include "provided.h"
-#include "MemberDatabase.h"
 #include <iostream>
 #include <string>
 #include <vector>
+using namespace std;
 
+//
 const std::string MEMBERS_FILE    = "members.txt";
 const std::string TRANSLATOR_FILE = "translator.txt";
 
 bool findMatches(const MemberDatabase& mdb, const AttributeTranslator& at);
+
+
+void listCompatiblePairs(const AttributeTranslator& translator)
+{
+     AttValPair att("hobby","painting");
+     std::vector<AttValPair> result =
+     translator.FindCompatibleAttValPairs(att);
+    if (!result.empty())
+    {
+         std::cout << "Compatible attributes and values:" << std::endl;
+         for (const auto& p: result)
+         std::cout << p.attribute << " -> " << p.value << std::endl;
+     }
+}
+
+void printEmails(const MemberDatabase& mdb)
+{
+     AttValPair att("job", "salesperson");
+     std::vector<std::string> result = mdb.FindMatchingMembers(att);
+    if (!result.empty())
+    {
+         std::cout << "Compatible emails:" << std::endl;
+         for (const auto& p: result)
+         std::cout << p << std::endl;
+     }
+}
+
+void findMemberByEmail(const MemberDatabase& md, std::string member_email)
+{
+    const PersonProfile* ptr = md.GetMemberByEmail(member_email);
+    if (ptr != nullptr)
+    std::cout << "Found info for member: " << ptr->GetName() << std::endl;
+    else
+    std::cout << "No member has address " << member_email << std::endl;
+}
+
+void tester(AttValPair* pair)
+{
+    if (pair == nullptr)
+    {
+        std::cout << "No value found." << std::endl;
+    }
+    else
+    {
+        std::cout << "The value is: " << pair->value << std::endl;
+    }
+}
 
 int main() {
     MemberDatabase mdb;
@@ -207,11 +81,102 @@ int main() {
         ;
 
     std::cout << "Happy dating!" << std::endl;
+    
+    
+    
+    //code ^^^^^^
+
+//    RadixTree<int> rT;
+//    rT.insert("shop", 5);
+//    rT.insert("good", 2);
+//    rT.insert("mad", 9);
+//    rT.insert("cool", 10);
+//    rT.insert("shell", 111);
+//    rT.insert("sheep", 123);
+//    rT.insert("she", 123333);
+//    rT.insert("car", 2);
+//    rT.insert("car", 1);
+//    rT.insert("camp", 3);
+//    rT.insert("cramp", 99);
+//    rT.insert("carry", 960);
+//
+//    rT.insert("card", 3);
+//    rT.insert("camp", 3);
+//
+//    rT.insert("car",90);
+//    rT.insert("car",67);
+//    rT.insert("cat",999);
+//    rT.insert("car",9988);
+//
+//
+//    rT.insert("she", 1);
+//    rT.insert("sheep", 2);
+//
+//    std::cout << *(rT.search("car")) << std::endl;
+//    std::cout << *(rT.search("card")) << std::endl;
+//    std::cout << *(rT.search("cat")) << std::endl;
+//    std::cout << *(rT.search("camp")) << std::endl;
+//    std::cout << *(rT.search("cramp")) << std::endl;
+//    std::cout << *(rT.search("carry")) << std::endl;
+//    std::cout << *(rT.search("shop")) << std::endl;
+
+//    AttributeTranslator tra = AttributeTranslator();
+//    tra.Load(TRANSLATOR_FILE);
+//    std::cout << "----------" << std::endl;
+//    listCompatiblePairs(tra);
+
+
+//    MemberDatabase mdb;
+//    mdb.LoadDatabase(MEMBERS_FILE);
+//    printEmails(mdb);
+//    findMemberByEmail(mdb, "TitusQuin0@me.com");
+//    findMemberByEmail(mdb, "RPa6425@cox.net");
+//    findMemberByEmail(mdb, "ScHob4657@juno.com");
+//    findMemberByEmail(mdb, "AzariahSala558@zoho.com");
+//
+//
+    
+    
+    
+//
+//    PersonProfile person = PersonProfile("Jacky", "ykcaj@g.ucla.edu");
+//    cout << person.GetName() << endl;
+//    cout << person.GetEmail() << endl;
+//    AttValPair a = AttValPair("job", "doctor");
+//    AttValPair b = AttValPair("hobby", "hobby");
+//    AttValPair c = AttValPair("hobby", "gaming");
+//    AttValPair d = AttValPair("hobby", "poker");
+//    AttValPair e = AttValPair("hobby", "improv");
+//    AttValPair f = AttValPair("trait", "reactive");
+//    AttValPair g = AttValPair("trait", "complacent");
+//    AttValPair h = AttValPair("trait", "bewildered");
+//    AttValPair i = AttValPair("hobby", "dancing");
+//    AttValPair j = AttValPair("hobby", "dancing");
+//
+//    person.AddAttValPair(a);
+//    person.AddAttValPair(b);
+//    person.AddAttValPair(c);
+//    person.AddAttValPair(d);
+//    person.AddAttValPair(e);
+//    person.AddAttValPair(f);
+//    person.AddAttValPair(g);
+//    person.AddAttValPair(h);
+//    person.AddAttValPair(i);
+//    person.AddAttValPair(j);
+//    AttValPair print;
+//
+//    for(int i = 0; i < person.GetNumAttValPairs(); i++)
+//    {
+//        person.GetAttVal(i, print);
+//        cout << print.attribute << ", " << print.value << endl;
+//    }
 }
+
 
 bool findMatches(const MemberDatabase& mdb, const AttributeTranslator& at)
 {
-      // Prompt for email
+    
+    //   Prompt for email
     std::string email;
     const PersonProfile* pp;
     for (;;) {
@@ -237,9 +202,9 @@ bool findMatches(const MemberDatabase& mdb, const AttributeTranslator& at)
     int threshold;
     std::cout << "How many shared attributes must matches have? ";
     std::cin >> threshold;
-    std::cin.ignore(10000, '\n'); 
+    std::cin.ignore(10000, '\n');
 
-      // Print matches and the number of matching translated attributes
+    //   Print matches and the number of matching translated attributes
     MatchMaker mm(mdb, at);
     std::vector<EmailCount> emails = mm.IdentifyRankedMatches(email, threshold);
     if (emails.empty())
@@ -250,11 +215,10 @@ bool findMatches(const MemberDatabase& mdb, const AttributeTranslator& at)
             const PersonProfile* pp = mdb.GetMemberByEmail(emailCount.email);
             std::cout << pp->GetName() << " at " << emailCount.email << " with "
                       << emailCount.count << " matches!" << std::endl;
+    
         }
     }
     std::cout << std::endl;
     return true;
 }
 
-
-*/

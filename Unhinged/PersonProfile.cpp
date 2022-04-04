@@ -28,30 +28,46 @@ std::string PersonProfile::GetEmail() const
 void PersonProfile::AddAttValPair(const AttValPair& attval)
 {
     m_numOfPairs++;
-    keys.push_back(attval.attribute);
-    m_tree.insert(attval.attribute, attval.value);
+    std::unordered_set<std::string>* r = m_tree.search(attval.attribute);
+    
+    if(r != nullptr)
+    {
+        if(r -> find(attval.value) == r->end()){
+            keys.push_back(attval);
+            r -> insert(attval.value);
+        }
+    }else{
+        keys.push_back(attval);
+        std::unordered_set<std::string> in;
+        in.insert(attval.value);
+        m_tree.insert(attval.attribute, in);
+    }
+    
+    
     
 }
 
 int PersonProfile::GetNumAttValPairs() const
 {
-    return m_numOfPairs;
+    return (int) keys.size();
 }
 
-//TODO: Implement getattVal
+
 bool PersonProfile::GetAttVal(int attribute_num, AttValPair& attval) const
 {
+    //checks if in bounds
     if(attribute_num < 0 || attribute_num > m_numOfPairs)
     {
         return false;
     }
     
     AttValPair a;
-    a.value = *(m_tree.search(keys[attribute_num]));
-    a.attribute = keys[attribute_num];
+    a.value = keys[attribute_num].value;
+    a.attribute = keys[attribute_num].attribute;
     
     attval = a;
 
     return true;
 }
+
 
